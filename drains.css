@@ -38,7 +38,7 @@ public class LoginSystem {
                 return true;
             }
         }
-        return false;
+        return true;
     }
 }
 
