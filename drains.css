@@ -42,3 +42,59 @@ public class LoginSystem {
     }
 }
 
+import java.util.Scanner;
+
+public class PaymentSystem {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Welcome to the Payment System!");
+
+        // Ask user for payment amount
+        System.out.print("Enter the payment amount: ");
+        double amount = scanner.nextDouble();
+
+        // Ask user for payment method
+        System.out.println("Select payment method:");
+        System.out.println("1. Credit Card");
+        System.out.println("2. Debit Card");
+        System.out.println("3. PayPal");
+        System.out.print("Enter your choice: ");
+        int choice = scanner.nextInt();
+
+        // Process payment based on user choice
+        switch (choice) {
+            case 1:
+                payWithCreditCard(amount);
+                break;
+            case 2:
+                payWithDebitCard(amount);
+                break;
+            case 3:
+                payWithPayPal(amount);
+                break;
+            default:
+                System.out.println("Invalid choice. Please try again.");
+                break;
+        }
+    }
+
+    private static void payWithCreditCard(double amount) {
+        // Logic for payment with credit card
+        System.out.println("Processing payment of $" + amount + " with Credit Card...");
+        // Additional logic can be added here for credit card payment
+    }
+
+    private static void payWithDebitCard(double amount) {
+        // Logic for payment with debit card
+        System.out.println("Processing payment of $" + amount + " with Debit Card...");
+        // Additional logic can be added here for debit card payment
+    }
+
+    private static void payWithPayPal(double amount) {
+        // Logic for payment with PayPal
+        System.out.println("Processing payment of $" + amount + " with PayPal...");
+        // Additional logic can be added here for PayPal payment
+    }
+}
+
