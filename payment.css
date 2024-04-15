@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Payment Form</title>
+<style>
+    /* Basic styling for demonstration purposes */
+    form {
+        max-width: 400px;
+        margin: 0 auto;
+    }
+    input[type="text"], input[type="number"], input[type="submit"] {
+        display: block;
+        margin-bottom: 10px;
+    }
+</style>
+</head>
+<body>
+    <form id="paymentForm" action="#" method="post">
+        <label for="cardNumber">Card Number:</label>
+        <input type="text" id="cardNumber" name="cardNumber" placeholder="1234 5678 9012 3456" required>
+
+        <label for="expiryDate">Expiry Date:</label>
+        <input type="text" id="expiryDate" name="expiryDate" placeholder="MM/YY" required>
+
+        <label for="cvv">CVV:</label>
+        <input type="text" id="cvv" name="cvv" placeholder="123" required>
+
+        <input type="submit" value="Pay">
+    </form>
+
+    <script>
+        document.getElementById("paymentForm").addEventListener("submit", function(event) {
+            var cardNumber = document.getElementById("cardNumber").value;
+            var expiryDate = document.getElementById("expiryDate").value;
+            var cvv = document.getElementById("cvv").value;
+
+            // Perform validation here, e.g., check card number format, expiry date format, CVV length, etc.
+
+            // If validation fails, prevent form submission
+            if (!isValid(cardNumber, expiryDate, cvv)) {
+                event.preventDefault();
+            }
+        });
+
+        // Validation function, you can customize this as per your requirements
+        function isValid(cardNumber, expiryDate, cvv) {
+            // Example validation: Card number must be 16 digits, expiry date must be in MM/YY format, CVV must be 3 digits
+            var cardNumberRegex = /^\d{16}$/;
+            var expiryDateRegex = /^(0[1-9]|1[0-2])\/\d{2}$/;
+            var cvvRegex = /^\d{3}$/;
+
+            return cardNumberRegex.test(cardNumber) && expiryDateRegex.test(expiryDate) && cvvRegex.test(cvv);
+        }
+    </script>
+</body>
+</html>
